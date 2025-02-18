@@ -297,26 +297,26 @@ const Portfolio = () => {
               {
                 title: "Graduate Teaching Assistant",
                 company: "University of Florida | Gainesville, Florida",
-                period: "August 2024 - Present",
-                description: "Assisted in delivering lectures and grading assignments for courses Computer Architecture and Embedded Systems. Conducted office hours to clarify complex concepts and mentor students on project development."
+                period: "August 2024 - May 2025",
+                description: "Assisted in delivering lectures and graded 15 assignments for Computer Architecture and Embedded Systems courses. Conducted 2 hours of office sessions per week, clarifying complex concepts and guiding students in successfully completing technical projects."
               },
               {
                 title: "Software Engineer",
                 company: "NCR Corporation | Hyderabad, India",
                 period: "January 2022 - July 2023",
-                description: "Developed UI logic for a cash handling system, managing API requests and WebSocket responses which improved system reliability, resulting in a 20% decrease in error rates. Implemented REST APIs, defining request, response schemas and orchestrating calls to relevant microservices which reduced API response time by 30%. Worked on silent login feature using session ID persistence, reducing login time from 7 seconds to 2 seconds. Wrote Jest unit tests for new UI components, achieving 90% code coverage and minimizing post release bugs. Collaborated effectively in an Agile team, consistently involved in 10+ planning meetings, design discussions and technical debt sessions, resulting in the successful delivery of 15 sprints and 3 major product releases."
+                description: "Developed a silent login feature in React enabling automatic user authentication through session ID persistence, eliminating the need for manual credential entry and reducing user login time by up to 10 seconds, enhancing overall user experience. Handled frontend API requests by invoking corresponding endpoints and implemented loaders, popups and snackbars to capture API and WebSocket responses, reducing debugging time by 30% and improving user interaction. Used Kafka which works on publish subscribe model to improve processing time of cash handling transactions such as deposit, withdrawal, get balance by 20%. Wrote Jest unit tests for new UI components, achieving 90% code coverage and minimizing post release bugs. Collaborated effectively in an Agile team, consistently involved in planning meetings, design discussions and technical debt sessions, resulting in the successful delivery of 30 sprints and 3 major product releases."
               },
               {
                 title: "Engineering Intern",
                 company: "OpenText | Bengaluru, India",
                 period: "October 2021 - December 2021",
-                description: "Worked on selenium java automation for core for Supplier Exchange application on top of BDD Jbehave framework. Fixed 10 Jbehave story files, reported 2 bugs and raised issues in Jira. Conducted manual testing for 44 test cases and automated additional 30 test cases."
+                description: "Developed Selenium automation scripts on a BDD JBehave framework for a web application, automating 30 test cases and manually executing 44 test cases, resulting in improved test coverage by 20%."
               },
               {
                 title: "Research and Development Intern",
                 company: "Genoparadigm | Hyderabad, India",
                 period: "August 2020 - June 2021",
-                description: "Created an automated breast cancer detection system in Python using the Detectron2 neural network model which localizes and predicts mitosis regions in whole slide images. Used image processing techniques, hyperparameter tuning and transfer learning to achieve 98% accuracy."
+                description: "Created an automated breast cancer detection system in Python using the Detectron2 neural network, achieving 98% accuracy in localizing and predicting mitosis regions in whole slide images through transfer learning. Authored technical documentation, simplifying project concepts and workflows, which reduced onboarding time by 40%."
               },
             ].map((exp, index) => (
               <div key={index} className={`${themeClasses.gradient} p-8 rounded-xl shadow-lg transform hover:scale-[1.01] transition-transform duration-300`}>
@@ -331,7 +331,11 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-                <p className={`${themeClasses.secondaryText} leading-relaxed`}>{exp.description}</p>
+                <ul className={`${themeClasses.secondaryText} list-disc pl-5`}>
+                  {exp.description.split(".").map((point, idx) => 
+                    point && <li key={idx}>{point}.</li>
+                  )}
+                </ul>
               </div>
             ))}
           </div>
